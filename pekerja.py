@@ -387,8 +387,7 @@ import re
     if ada("sejarah", "merdeka"):
         return f"🇲🇾 [Sejarah] {pekerja_sejarah_malaysia(s)}"
 
-    return f"✨ [Gemini] {pekerja_gemini(s)}"
-def bos_hayden(s):  # <-- NI BOS, PALING BAWAH
+    def bos_hayden(s):  # <-- NI BOS, PALING BAWAH
     if pekerja_security(s) == "BLOCK":
         return "⛔ Security block. Soalan bahaya."
     l = s.lower().strip()
