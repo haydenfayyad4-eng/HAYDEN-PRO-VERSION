@@ -87,7 +87,8 @@ def simpan_belajar(soalan, jawapan):
             json.dump(data, f, ensure_ascii=False, indent=2)
     except:
         pass
-        
+
+
  def bos_hayden(s):
     l = s.lower().strip()
     if "siapa nama" in l or "nama kau" in l:
