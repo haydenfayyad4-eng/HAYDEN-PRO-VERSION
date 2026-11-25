@@ -327,20 +327,6 @@ PEKERJA_BIG = {
     return f"✨ [Gemini] {pekerja_gemini(s)}"
 import re
 
-def bos_hayden(s):
-    if pekerja_security(s) == "BLOCK":
-        return "⛔ Security block. Soalan bahaya."
-    l = s.lower().strip()
-    if "siapa nama" in l or "nama kau" in l or "nama awak" in l or "siapa awak" in l or l in ["kau siapa", "awak siapa", "siapa kau"]:
-        return "Nama aku HAYDEN-PRO-VERSION. Bos aku Adam yang buat aku. Kau pulak siapa?"
-    if "siapa buat" in l or "siapa cipta" in l or "siapa bos" in l:
-        return "Adam yang buat aku. Dia bos aku, dia dari Seremban."
-    if "kau buat apa" in l or "kau buat ape" in l:
-        return "Aku ni AI tolong jawab soalan kau. Ada 100 pekerja bawah aku."
-    if l in ["hi", "hello", "hey", "salam", "assalamualaikum", "hai"]:
-        return "Hai! Aku HAYDEN. Tanya aku apa-apa je."
-
-    # NI YANG BARU - DIA BACA PERKATAAN PENUH, BUKAN SEKERAT
     # Contoh: makruh takkan kena tangkap jadi mak lagi
     perkataan = re.findall(r"[a-z0-9]+", l)
     perkataan_set = set(perkataan)
