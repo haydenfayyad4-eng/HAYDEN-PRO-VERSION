@@ -387,16 +387,33 @@ import re
     if ada("sejarah", "merdeka"):
         return f"🇲🇾 [Sejarah] {pekerja_sejarah_malaysia(s)}"
 
-    def bos_hayden(s):  # <-- NI BOS, PALING BAWAH
-    if pekerja_security(s) == "BLOCK":
-        return "⛔ Security block. Soalan bahaya."
+    def bos_hayden(s):
     l = s.lower().strip()
+
+    # 1. Kalau soalan bahaya, block
+    if pekerja_security(s) == "BLOCK":
+        return "⛔ Tak boleh, soalan bahaya."
+
+    # 2. Kalau tanya nama / bos
     if "siapa nama" in l or "nama kau" in l:
-        return "Nama aku HAYDEN-PRO-VERSION. Bos aku Adam..."
-    if "siapa buat" in l or "siapa cipta" in l:
-        return "Adam yang buat aku..."
-    # ... dia baca PEKERJA_BIG kat sini ...
-    for _k in sorted(PEKERJA_BIG.keys(), key=len, reverse=True):
-        if _k in l:
-            return PEKERJA_BIG[_k]
-    return f"✨ [Gemini] Aku HAYDEN, bos aku Adam..."
+        return "Aku HAYDEN. Bos aku Adam."
+    if "siapa buat" in l or "siapa bos" in l:
+        return "Adam yang buat aku dari Seremban."
+
+    # 3. Kalau mintak coding - NI YANG COVER CODING
+    if "code" in l or "coding" in l or "python" in l:
+        if "umur" in l:
+            return "```python\numur = int(input('Umur: '))\nprint('Umur kau', umur)\n```"
+        if "kalkulator" in l or "tambah" in l:
+            return "```python\na = int(input('Nombor 1: '))\nb = int(input('Nombor 2: '))\nprint(a + b)\n```"
+        if "hello" in l:
+            return "```python\nprint('Hello Adam!')\n```"
+        return "Nak code apa? Taip 'code python kira umur' atau 'code python kalkulator'"
+
+    # 4. Kalau ada dalam 2000 pekerja, jawab dari situ
+    for k in sorted(PEKERJA_BIG.keys(), key=len, reverse=True):
+        if k in l:
+            return PEKERJA_BIG[k]
+
+    # 5. Kalau tak jumpa, suruh Gemini jawab
+    return f"✨ [Gemini] Aku HAYDEN, bos aku Adam. Kau tanya: {s}"
