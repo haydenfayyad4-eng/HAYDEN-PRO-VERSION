@@ -1,4 +1,4 @@
-import requests, random, datetime, os
+ import requests, random, datetime, os
 try:
     import streamlit as st
     GEMINI_KEY = st.secrets.get("GEMINI_API_KEY", "")
@@ -136,3 +136,10 @@ def bos_hayden(s):
     if "emosi" in l or "sedih sangat" in l: return f"❤️ [Emosi] {pekerja_emosi(s)}"
     if "wikipedia" in l: return f"📚 [Wikipedia] {pekerja_wikipedia(s)}"
     return f"✨ [Gemini] {pekerja_gemini(s)}"
+def bos_hayden(s):
+    if pekerja_security(s)=="BLOCK": return "⛔ Security block. Soalan bahaya."
+    l=s.lower()
+    if "siapa nama" in l or "nama kau" in l or "nama awak" in l or "siapa awak" in l:
+        return "Nama aku HAYDEN-PRO-VERSION. Bos aku Adam yang buat aku. Kau pulak siapa?"
+    if "siapa buat" in l or "siapa cipta" in l or "siapa bos" in l:
+        return "Adam yang buat aku. Dia bos aku."
