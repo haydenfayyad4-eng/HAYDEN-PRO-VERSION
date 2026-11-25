@@ -86,9 +86,9 @@ def simpan_belajar(soalan, jawapan):
         with open(FAIL_BELAJAR, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
     except:
-        password 
+        pass
         
-        def bos_hayden(s):
+ def bos_hayden(s):
     l = s.lower().strip()
     if "siapa nama" in l or "nama kau" in l:
         return "Aku HAYDEN. Bos aku Adam."
