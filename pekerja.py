@@ -162,3 +162,80 @@ def bos_hayden(s):
         if kunci in l:
             return pekerja(s)
     return f"✨ [Gemini] {pekerja_gemini(s)}"
+import re
+
+def bos_hayden(s):
+    if pekerja_security(s) == "BLOCK":
+        return "⛔ Security block. Soalan bahaya."
+    l = s.lower().strip()
+    if "siapa nama" in l or "nama kau" in l or "nama awak" in l or "siapa awak" in l or l in ["kau siapa", "awak siapa", "siapa kau"]:
+        return "Nama aku HAYDEN-PRO-VERSION. Bos aku Adam yang buat aku. Kau pulak siapa?"
+    if "siapa buat" in l or "siapa cipta" in l or "siapa bos" in l:
+        return "Adam yang buat aku. Dia bos aku, dia dari Seremban."
+    if "kau buat apa" in l or "kau buat ape" in l:
+        return "Aku ni AI tolong jawab soalan kau. Ada 100 pekerja bawah aku."
+    if l in ["hi", "hello", "hey", "salam", "assalamualaikum", "hai"]:
+        return "Hai! Aku HAYDEN. Tanya aku apa-apa je."
+
+    # NI YANG BARU - DIA BACA PERKATAAN PENUH, BUKAN SEKERAT
+    # Contoh: makruh takkan kena tangkap jadi mak lagi
+    perkataan = re.findall(r"[a-z0-9]+", l)
+    perkataan_set = set(perkataan)
+
+    def ada(*kata):
+        return any(k in perkataan_set for k in kata)
+
+    if ada("makruh", "haram", "halal", "hukum", "solat", "puasa", "islam", "wuduk", "najis"):
+        return f"🕌 [Hukum] Makruh ni maksudnya benda yang tak disukai dalam Islam, tapi kalau buat tak berdosa, kalau tinggal dapat pahala. Contoh makruh: makan bawang mentah sebelum solat, main-main masa solat, berwuduk dengan air yang terdedah panas matahari. Nak tanya makruh apa lagi?"
+    if ada("kira", "tambah", "darab", "bahagi", "tolak"):
+        return f"🧮 [Calculator] {pekerja_calculator(s)}"
+    if ada("berita"):
+        return f"📰 [Berita] {pekerja_berita(s)}"
+    if ada("maksud", "kamus"):
+        return f"📖 [Kamus] {pekerja_kamus(s)}"
+    if ada("translate"):
+        return f"🌐 [Translator] {pekerja_translator(s)}"
+    if ada("kuiz"):
+        return f"❓ [Kuiz] {pekerja_kuiz(s)}"
+    if ada("sedih", "penat", "stress"):
+        return f"💪 [Motivasi] {pekerja_motivasi(s)}"
+    if ada("lawak"):
+        return f"😂 [Lawak] {pekerja_lawak(s)}"
+    if ada("cerita"):
+        return f"📖 [Cerita] {pekerja_cerita(s)}"
+    if ada("cuaca"):
+        return f"🌦️ [Cuaca] {pekerja_cuaca(s)}"
+    if ada("ibu", "mak", "mama", "emak", "umi"):
+        return f"❤️ [Ibu] {pekerja_ibu(s)}"
+    if ada("ayah", "bapa", "abah", "papa"):
+        return f"❤️ [Ayah] {pekerja_ayah(s)}"
+    if ada("nama"):
+        return f"✨ [Nama] {pekerja_nama(s)}"
+    if ada("lagu"):
+        return f"🎵 [Lagu] {pekerja_lagu(s)}"
+    if ada("filem"):
+        return f"🎬 [Filem] {pekerja_filem(s)}"
+    if ada("cinta", "crush"):
+        return f"💔 [Cinta] {pekerja_cinta(s)}"
+    if ada("doa", "quran"):
+        return f"🤲 [Quran/Doa] {pekerja_quran(s)}"
+    if ada("belajar"):
+        return f"📚 [Belajar] {pekerja_belajar(s)}"
+    if ada("game"):
+        return f"🎮 [Game] {pekerja_game(s)}"
+    if ada("kucing"):
+        return f"🐱 [Kucing] {pekerja_kucing(s)}"
+    if ada("bola"):
+        return f"⚽ [Bola] {pekerja_bola(s)}"
+    if ada("masak", "resepi"):
+        return f"🍜 [Masak] {pekerja_masak(s)}"
+    if ada("tidur", "mimpi"):
+        return f"😴 [Tidur] {pekerja_tidur(s)}"
+    if ada("sekolah", "cikgu", "guru"):
+        return f"🏫 [Sekolah] {pekerja_sekolah(s)}"
+    if ada("sains", "biologi", "kimia", "fizik"):
+        return f"🔬 [Sains] {pekerja_sains(s)}"
+    if ada("sejarah", "merdeka"):
+        return f"🇲🇾 [Sejarah] {pekerja_sejarah_malaysia(s)}"
+
+    return f"✨ [Gemini] {pekerja_gemini(s)}"
