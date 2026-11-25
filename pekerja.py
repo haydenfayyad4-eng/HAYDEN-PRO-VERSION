@@ -290,10 +290,9 @@ PEKERJA_BIG = {
     "kucing": "Kucing ni manja.",
     "bola": "Bola: JDT power.",
 }    
-    
-    # Cari pekerja ikut keyword - ni yang buat dia pandai
     peta = {
-        "kira": pekerja_calculator, "+": pekerja_calculator, "-": pekerja_calculator, "*": pekerja_calculator, "/": pekerja_calculator,
+    # Cari pekerja ikut keyword - ni yang buat dia pandai peta = {
+     "kira": pekerja_calculator, "+": pekerja_calculator, "-": pekerja_calculator, "*": pekerja_calculator, "/": pekerja_calculator,
         "hukum": pekerja_hukum, "solat": pekerja_hukum, "puasa": pekerja_hukum, "halal": pekerja_hukum, "haram": pekerja_hukum,
         "berita": pekerja_berita, "maksud": pekerja_kamus, "kamus": pekerja_kamus, "translate": pekerja_translator,
         "kuiz": pekerja_kuiz, "sedih": pekerja_motivasi, "penat": pekerja_motivasi, "stress": pekerja_motivasi, "give up": pekerja_motivasi,
@@ -323,7 +322,7 @@ PEKERJA_BIG = {
         "superhero": pekerja_superhero, "anime": pekerja_anime, "kartun": pekerja_kartun, "komik": pekerja_komik,
         "novel": pekerja_novel, "puisi": pekerja_puisi, "pantun": pekerja_pantun, "peribahasa": pekerja_peribahasa,
         "kawan": pekerja_kawan, "buli": pekerja_buli, "duit raya": pekerja_duit_raya, "raya": pekerja_hari_raya, "covid": pekerja_covid,
-    }
+ }
     for kunci, pekerja in peta.items():
         if kunci in l:
             return pekerja(s)
@@ -337,69 +336,69 @@ import re
     def ada(*kata):
         return any(k in perkataan_set for k in kata)
 
-    if ada("makruh", "haram", "halal", "hukum", "solat", "puasa", "islam", "wuduk", "najis"):
+        if ada("makruh", "haram", "halal", "hukum", "solat", "puasa", "islam", "wuduk", "najis"):
         return f"🕌 [Hukum] Makruh ni maksudnya benda yang tak disukai dalam Islam, tapi kalau buat tak berdosa, kalau tinggal dapat pahala. Contoh makruh: makan bawang mentah sebelum solat, main-main masa solat, berwuduk dengan air yang terdedah panas matahari. Nak tanya makruh apa lagi?"
-    if ada("kira", "tambah", "darab", "bahagi", "tolak"):
+        if ada("kira", "tambah", "darab", "bahagi", "tolak"):
         return f"🧮 [Calculator] {pekerja_calculator(s)}"
-    if ada("berita"):
+        if ada("berita"):
         return f"📰 [Berita] {pekerja_berita(s)}"
-    if ada("maksud", "kamus"):
+        if ada("maksud", "kamus"):
         return f"📖 [Kamus] {pekerja_kamus(s)}"
-    if ada("translate"):
+        if ada("translate"):
         return f"🌐 [Translator] {pekerja_translator(s)}"
-    if ada("kuiz"):
+        if ada("kuiz"):
         return f"❓ [Kuiz] {pekerja_kuiz(s)}"
-    if ada("sedih", "penat", "stress"):
+        if ada("sedih", "penat", "stress"):
         return f"💪 [Motivasi] {pekerja_motivasi(s)}"
-    if ada("lawak"):
+        if ada("lawak"):
         return f"😂 [Lawak] {pekerja_lawak(s)}"
-    if ada("cerita"):
+        if ada("cerita"):
         return f"📖 [Cerita] {pekerja_cerita(s)}"
-    if ada("cuaca"):
+        if ada("cuaca"):
         return f"🌦️ [Cuaca] {pekerja_cuaca(s)}"
-    if ada("ibu", "mak", "mama", "emak", "umi"):
+        if ada("ibu", "mak", "mama", "emak", "umi"):
         return f"❤️ [Ibu] {pekerja_ibu(s)}"
-    if ada("ayah", "bapa", "abah", "papa"):
+        if ada("ayah", "bapa", "abah", "papa"):
         return f"❤️ [Ayah] {pekerja_ayah(s)}"
-    if ada("nama"):
+        if ada("nama"):
         return f"✨ [Nama] {pekerja_nama(s)}"
-    if ada("lagu"):
+        if ada("lagu"):
         return f"🎵 [Lagu] {pekerja_lagu(s)}"
-    if ada("filem"):
+        if ada("filem"):
         return f"🎬 [Filem] {pekerja_filem(s)}"
-    if ada("cinta", "crush"):
+        if ada("cinta", "crush"):
         return f"💔 [Cinta] {pekerja_cinta(s)}"
-    if ada("doa", "quran"):
+        if ada("doa", "quran"):
         return f"🤲 [Quran/Doa] {pekerja_quran(s)}"
-    if ada("belajar"):
+        if ada("belajar"):
         return f"📚 [Belajar] {pekerja_belajar(s)}"
-    if ada("game"):
+        if ada("game"):
         return f"🎮 [Game] {pekerja_game(s)}"
-    if ada("kucing"):
+        if ada("kucing"):
         return f"🐱 [Kucing] {pekerja_kucing(s)}"
-    if ada("bola"):
+        if ada("bola"):
         return f"⚽ [Bola] {pekerja_bola(s)}"
-    if ada("masak", "resepi"):
+        if ada("masak", "resepi"):
         return f"🍜 [Masak] {pekerja_masak(s)}"
-    if ada("tidur", "mimpi"):
+        if ada("tidur", "mimpi"):
         return f"😴 [Tidur] {pekerja_tidur(s)}"
-    if ada("sekolah", "cikgu", "guru"):
+        if ada("sekolah", "cikgu", "guru"):
         return f"🏫 [Sekolah] {pekerja_sekolah(s)}"
-    if ada("sains", "biologi", "kimia", "fizik"):
+        if ada("sains", "biologi", "kimia", "fizik"):
         return f"🔬 [Sains] {pekerja_sains(s)}"
-    if ada("sejarah", "merdeka"):
+        if ada("sejarah", "merdeka"):
         return f"🇲🇾 [Sejarah] {pekerja_sejarah_malaysia(s)}"
 
     def bos_hayden(s):  # <-- NI BOS, PALING BAWAH
-    if pekerja_security(s) == "BLOCK":
+        if pekerja_security(s) == "BLOCK":
         return "⛔ Security block. Soalan bahaya."
-    l = s.lower().strip()
-    if "siapa nama" in l or "nama kau" in l:
+       l = s.lower().strip()
+        if "siapa nama" in l or "nama kau" in l:
         return "Nama aku HAYDEN-PRO-VERSION. Bos aku Adam..."
-    if "siapa buat" in l or "siapa cipta" in l:
+        if "siapa buat" in l or "siapa cipta" in l:
         return "Adam yang buat aku..."
-    # ... dia baca PEKERJA_BIG kat sini ...
-    for _k in sorted(PEKERJA_BIG.keys(), key=len, reverse=True):
+        # ... dia baca PEKERJA_BIG kat sini ...
+        for _k in sorted(PEKERJA_BIG.keys(), key=len, reverse=True):
         if _k in l:
             return PEKERJA_BIG[_k]
-    return f"✨ [Gemini] Aku HAYDEN, bos aku Adam..."
+        return f"✨ [Gemini] Aku HAYDEN, bos aku Adam..."
